@@ -38,7 +38,7 @@ module Draper
 
         def controller
           (Draper::ViewContext.controller || ApplicationController.new).tap do |controller|
-            controller.request ||= ActionController::TestRequest.create
+            controller.request ||= ActionController::TestRequest.create(controller.controller_name)
           end
         end
       end
